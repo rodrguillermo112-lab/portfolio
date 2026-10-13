@@ -27,11 +27,12 @@ export type Project = {
 // Posters are actual frames. Previews are silent excerpts, never replacement edits.
 // The second argument is the real YouTube ID after uploading as unlisted.
 // Leave it empty until verified; the publication check rejects missing/repeated IDs.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const media = (slug: string, youtubeId: string) => ({
-  video: `/videos/projects/${slug}.mp4`,
+  video: `${basePath}/videos/projects/${slug}.mp4`,
   youtubeId,
-  preview: `/videos/previews/${slug}-preview.mp4`,
-  poster: `/images/projects/${slug}-poster.webp`,
+  preview: `${basePath}/videos/previews/${slug}-preview.mp4`,
+  poster: `${basePath}/images/projects/${slug}-poster.webp`,
 });
 export const projects: Project[] = [
   {
@@ -89,7 +90,7 @@ export const projects: Project[] = [
     description:
       "A concise product explainer combining a presenter, graphic inserts and animated captions.",
     ...media("quoty-partners", "-O9qihw1XfY"),
-    poster: "/images/projects/quoty-partners-portrait.webp",
+    poster: `${basePath}/images/projects/quoty-partners-portrait.webp`,
     orientation: "portrait",
     aspectRatio: "9 / 16",
     duration: 30.37,
