@@ -6,7 +6,7 @@ import "./upgrade.css";
 export const metadata: Metadata = {
   title: site.title,
   description: site.description,
-  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.svg` },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.svg?v=2` },
   openGraph: {
     title: site.title,
     description: site.description,
