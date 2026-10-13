@@ -43,7 +43,9 @@ for (const project of data.projects) {
   )
     throw new Error(`Missing translation: ${project.id}`);
   for (const key of ["preview", "poster"]) {
-    const path = resolve(root, "public", project[key].replace(/^\//, ""));
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    const local = prefix ? project[key].slice(prefix.length) : project[key];
+    const path = resolve(root, "public", local.replace(/^\//, ""));
     const file = await stat(path);
     if (!file.size) throw new Error(`Empty ${key}: ${project.title}`);
   }
