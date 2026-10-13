@@ -463,7 +463,9 @@ export function FinalContact() {
         <div>
           <a
             className="solid-link"
-            href={`mailto:${site.email}?subject=${encodeURIComponent(t.contact.subject)}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(site.email)}&su=${encodeURIComponent(t.contact.subject)}`}
+            target="_blank"
+            rel="noopener noreferrer"
             data-magnetic
           >
             {t.contact.button}
